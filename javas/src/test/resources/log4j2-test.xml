@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Loghub name="Loghub"
+                projectName="${env:projectName}"
+                logstore="${env:logstore}"
+                endpoint="${env:endpoint}"
+                accessKeyId="${env:accessKeyId}"
+                accessKey="${env:accessKey}"
+                packageTimeoutInMS="3000"
+                logsCountPerPackage="4096"
+                logsBytesPerPackage="3145728"
+                memPoolSizeInByte="104857600"
+                retryTimes="3"
+                maxIOThreadSizeInPool="8"
+                topic="your topic"
+                source="your source"
+                timeFormat="yyyy-MM-dd'T'HH:mmZ"
+                timeZone="UTC"
+                ignoreExceptions="true">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx"/>
+        </Loghub>
+    </Appenders>
+    <Loggers>
+        <Root level="warn">
+            <AppenderRef ref="Loghub"/>
+        </Root>
+    </Loggers>
+</Configuration>
